@@ -1,0 +1,35 @@
+{% extends "base.html" %} {% block content %}
+
+<section
+  style="display: flex; justify-content: center; gap: 60px; margin-top: 70px"
+>
+  {% for product in product_list %}
+  <div class="card" style="width: 300px; height: 450px">
+    <img src="{{ product['image'] }}" class="card-img-top" />
+    <div class="card-body">
+      <br />
+      <h6 class="card-text">{{ product['name'] }}</h6>
+      <h6 class="card-text">{{ product['price'] }}</h6>
+    </div>
+  </div>
+  {% endfor %}
+</section>
+
+<br /><br />
+
+<div class="container">
+  <footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item">
+        <a href="/" class="nav-link px-2 text-body-secondary">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="/products" class="nav-link px-2 text-body-secondary"
+          >Products</a
+        >
+      </li>
+    </ul>
+    <p class="text-center text-body-secondary">© 2025 Company, Inc</p>
+  </footer>
+</div>
+{% endblock %}

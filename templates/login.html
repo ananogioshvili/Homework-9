@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block content %}
+<section class="d-flex align-items-center py-4 bg-body-tertiary">
+  <main class="form-signin w-50 m-auto">
+    <form>
+      <br /><br />
+      <h1 class="h2 mb-3 fw-normal">Please log in</h1>
+      <br />
+      <div class="form-floating">
+        <h1 class="h5 mb-2 fw-normal">Email address:</h1>
+        <input type="email" class="form-control" placeholder="Email address" />
+        <br />
+      </div>
+      <div class="form-floating">
+        <h1 class="h5 mb-2 fw-normal">Password:</h1>
+        <input type="password" class="form-control" placeholder="Password" />
+      </div>
+      <div class="form-check text-start my-3">
+        <input class="form-check-input" type="checkbox" value="remember-me" />
+        <label class="form-check-label"> Remember me </label>
+      </div>
+      <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
+    </form>
+  </main>
+</section>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block content %}
+<section id="carouselExample" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img
+        src="https://images.pexels.com/photos/31143497/pexels-photo-31143497/free-photo-of-purple-electric-guitar-with-amplifier-on-stage.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://images.pexels.com/photos/3423985/pexels-photo-3423985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+    <div class="carousel-item">
+      <img
+        src="https://images.pexels.com/photos/68710/pexels-photo-68710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        class="d-block w-100"
+        alt="..."
+      />
+    </div>
+  </div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+  <div class="container">
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item">
+          <a href="/" class="nav-link px-2 text-body-secondary">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/products" class="nav-link px-2 text-body-secondary"
+            >Products</a
+          >
+        </li>
+      </ul>
+      <p class="text-center text-body-secondary">© 2025 Company, Inc</p>
+    </footer>
+  </div>
+</section>
+{% endblock %}
