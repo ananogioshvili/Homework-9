@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+
+<section class="d-flex align-items-center py-4 bg-body-tertiary">
+  <main style="margin-left: 120px; margin-top: 40px;">
+      <div class="mb-3 row">
+    <h4>Name: {{ profiles['name'] }}</h4>
+    </div>
+    <div class="mb-3 row">
+        <h4>Username: {{ profiles['surname'] }}</h4>
+    </div>
+    <div class="mb-3 row">
+        <h4>Phone: {{ profiles['phone'] }}</h4>
+    </div>
+  </main>
+</section>
+
+{% endblock %}
