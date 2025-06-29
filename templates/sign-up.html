@@ -2,7 +2,7 @@
 
 <section class="d-flex align-items-center py-4 bg-body-tertiary">
   <main class="form-signin w-50 m-auto">
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
       {{ form.hidden_tag() }}
       <br /><br />
       <h1 class="h2 mb-3 fw-normal">Please Sign Up</h1>
@@ -10,6 +10,10 @@
         Please fill in this form to create an account.
       </h1>
       <br />
+      <div >
+          {{ form.image(class="form-control", placeholder=form.image.label.text) }}
+        <br />
+      </div>
       <div >
           {{ form.name(class="form-control", placeholder=form.name.label.text) }}
         <br />

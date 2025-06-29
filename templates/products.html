@@ -3,18 +3,28 @@
 <section
   style="display: flex; justify-content: center; gap: 60px; margin-top: 70px"
 >
-  {% for product in product_list %}
-  <div class="card" style="width: 300px; height: 490px">
-    <br />
-    <img src="{{ product['image'] }}" class="card-img-top" />
-    <div class="card-body">
-      <h6 class="card-text">{{ product['name'] }}</h6>
-      <h6 class="card-text">{{ product['price'] }}</h6>
-      <a href="/product/{{ product['id'] }}"> <button type="button" class="btn btn-warning">View Details</button> </a>
+  {% for product in products %}
+    <div class="card" style="width: 300px; height: 580px">
+      <br />
+      <img src="/static/images/{{ product['image'] }}" class="card-img-top" />
+      <div class="card-body">
+        <h6 class="card-text">{{ product['name'] }}</h6>
+        <h6 class="card-text">{{ product['price'] }}</h6>
+
+        <p><a class="btn btn-secondary" href="/product/{{ product['id'] }}">View Product</a></p>
+        {% if role == 'admin' %}
+          <p><a class="btn btn-danger" href="/delete_product/{{ product['id'] }}">Delete Product</a></p>
+          <p><a class="btn btn-info" href="/edit_product/{{ product['id'] }}">Edit Product</a></p>
+        {% endif %}
+
+      </div>
     </div>
-  </div>
   {% endfor %}
 </section>
+
+
+
+
 
 <br /><br />
 

@@ -5,11 +5,11 @@
 <div class="container">
   <div class="row align-items-center g-4">
     <div class="col-md-4 text-center">
-      <img src="{{ product_details['image'] }}" class="img-fluid rounded shadow-sm" style="max-width: 500px;" alt="Guitar">
+      <img src="/static/images/{{ product['image'] }}" class="img-fluid rounded shadow-sm" style="max-width: 500px;" alt="Guitar">
     </div>
     <div class="col-md-8">
-      <h3 class="fw-bold">{{ product_details['name'] }}</h3>
-      <p class="fs-4 text-dark mb-0">{{ product_details['price'] }} </p>
+      <h3 class="fw-bold">{{ product['name'] }}</h3>
+      <p class="fs-4 text-dark mb-0">{{ product['price'] }} </p>
     </div>
   </div>
 </div>
