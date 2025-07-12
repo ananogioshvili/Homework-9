@@ -32,6 +32,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer(), primary_key=True)
     email = db.Column(db.String(), nullable=False)
     password = db.Column(db.String(), nullable=False)
+    role = db.Column(db.String(), nullable=False, default="user")
 
 @login_manager.user_loader
 def load_user(user_id):

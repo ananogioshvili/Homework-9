@@ -1,8 +1,9 @@
 from ext import app, db, login_manager
-from flask import render_template, redirect
+from flask import render_template, redirect, flash
 from forms import SignUpForm, ProductForm, LoginForm
 from os import path
 from models import Product, User
+from flask_login import login_user,logout_user,login_required
 
 from werkzeug.utils import secure_filename
 import os
@@ -37,15 +38,20 @@ def profile(profile_id):
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = LoginForm()
-    user = User.query.filter(form.email.data == User.email).first()
-    # if form.validate_on_submit():
-    #     email = form.email.data
-    #     password = form.password.data
-    if user != None:
-        print(user)
-        return redirect("/")
+    if form.validate_on_submit():
+        user = User.query.filter(form.email.data == User.email).first()
+        if user != None:
+            login_user(user)
+            flash("You have been logged in.")
+            return redirect("/")
 
     return render_template("login.html", form=form)
+
+
+@app.route("/logout")
+def logout():
+    logout_user()
+    return redirect("/")
 
 
 @app.route("/sign-up", methods=["get", "post"])
@@ -66,7 +72,7 @@ def signup():
 
         db.session.add(new_user)
         db.session.commit()
-        return redirect("/products")
+        return redirect("/")
 
         # new_user.create()
 
@@ -78,6 +84,7 @@ def signup():
 
 
 @app.route("/add_product", methods=["GET", "POST"])
+@login_required
 def add_product():
     form = ProductForm()
     if form.validate_on_submit():
@@ -103,6 +110,7 @@ def add_product():
 
 
 @app.route("/delete_product/<int:product_id>", methods=["GET", "POST"])
+@login_required
 def delete_product(product_id):
     product = Product.query.get(product_id)
     db.session.delete(product)
@@ -114,6 +122,7 @@ def delete_product(product_id):
 
 
 @app.route("/edit_product/<int:product_id>", methods=["GET", "POST"])
+@login_required
 def edit_product(product_id):
     product = Product.query.get(product_id)
     form = ProductForm(name=product.name, price=product.price, image=product.image)

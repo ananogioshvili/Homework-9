@@ -1,4 +1,12 @@
 {% extends "base.html" %} {% block content %}
+
+{% set messages = get_flashed_messages() %}
+{% for message in messages  %}
+<div class="alert alert-success">
+  {{ message }}
+</div>
+{% endfor %}
+
 <section id="carouselExample" class="carousel slide">
   <div class="carousel-inner">
     <div class="carousel-item active">
